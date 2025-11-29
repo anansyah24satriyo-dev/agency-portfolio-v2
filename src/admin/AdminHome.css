@@ -1,0 +1,142 @@
+.dashboard {
+  padding: 35px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #0f172a;
+}
+
+/* Stats Cards */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform .2s;
+}
+
+.stat:hover {
+  transform: translateY(-4px);
+}
+
+.stat .icon {
+  background: #3b82f6;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat .content h3 {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.stat .content span {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Quick Actions */
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 45px;
+}
+
+.actions button {
+  flex: 1;
+  background: #3b82f6;
+  border: none;
+  color: white;
+  padding: 14px 18px;
+  font-size: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all .23s;
+}
+
+.actions button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.subtitle {
+  margin: 0 0 15px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Latest list */
+.latest {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item {
+  background: white;
+  padding: 16px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: .2s;
+}
+
+.item:hover {
+  transform: translateX(4px);
+}
+
+.item img {
+  width: 85px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.info strong {
+  font-size: 15px;
+  color: #1e293b;
+}
+
+.info span {
+  display: block;
+  font-size: 13px;
+  color: #475569;
+}
+
+.info small {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.7;
+}

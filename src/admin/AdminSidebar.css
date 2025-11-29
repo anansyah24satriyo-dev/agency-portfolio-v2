@@ -1,0 +1,44 @@
+.admin-sidebar {
+  width: 240px;
+  background: #0a4d98;
+  color: #fff;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-sidebar nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.admin-sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Active Link */
+.admin-sidebar nav .active {
+  background: #fff;
+  color: #0a4d98;
+  font-weight: 700;
+}
+.admin-sidebar nav .active:hover {
+  background: #fff;
+  color: #0a4d98;
+}

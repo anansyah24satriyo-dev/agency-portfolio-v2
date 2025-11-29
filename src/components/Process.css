@@ -1,0 +1,51 @@
+.process {
+  text-align: center;
+}
+
+.process-container {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 40px;
+}
+
+.process-step {
+  background-color: var(--white);
+  padding: 35px 25px;
+  border-radius: 18px;
+  transition: var(--transition);
+  border: 1px solid #d8e3ed;
+}
+
+.process-step:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow);
+  border-color: transparent;
+}
+
+.step-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.process-step h3 {
+  color: var(--primary-color);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.process-step p {
+  font-size: 15px;
+  color: #567792;
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+  .step-icon {
+    font-size: 42px;
+  }
+  .process-step {
+    padding: 28px 18px;
+  }
+}

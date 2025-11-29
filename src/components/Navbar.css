@@ -1,0 +1,94 @@
+/* Navbar.css */
+
+.menu button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.menu button:hover {
+  color: var(--secondary-color);
+}
+
+.navbar {
+  background-color: var(--white);
+  padding: 10px 20px;
+  transition: var(--transition);
+}
+
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row; /* Horizontal: logo kiri, tulisan kanan */
+  align-items: center;
+  cursor: pointer; /* Opsional: jika ingin logo bisa diklik */
+}
+
+.logo {
+  width: 120px; /* Sesuaikan lebar logo */
+  height: 40px; /* Sesuaikan tinggi logo */
+  object-fit: contain; /* Pastikan gambar tidak terdistorsi */
+  margin-right: 10px; /* Jarak antara gambar dan teks */
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--primary-color); /* Warna utama untuk teks */
+  transition: var(--transition);
+}
+
+.logo-text:hover {
+  color: var(--secondary-color); /* Warna hover untuk efek bagus */
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.wa-btn {
+  width: 40px; /* Sesuaikan ukuran */
+  height: 40px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.wa-btn:hover {
+  opacity: 0.8;
+}
+
+.cta-btn {
+  @extend .btn;
+}

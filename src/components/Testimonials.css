@@ -1,0 +1,84 @@
+.testimonials {
+  text-align: center;
+}
+
+.testimonials-slider {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.testimonials-slider::-webkit-scrollbar {
+  height: 6px;
+}
+.testimonials-slider::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 10px;
+}
+
+/* Card UI */
+.testimonial-card {
+  background-color: var(--white);
+  border: 1px solid #dce6f2;
+  border-radius: 20px;
+  padding: 25px;
+  min-width: 280px;
+  max-width: 330px;
+  scroll-snap-align: center;
+  transition: var(--transition);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow);
+  border-color: transparent;
+}
+
+/* Avatar */
+.profile img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* Text & stars */
+.message {
+  font-size: 15px;
+  color: #576c82;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.stars {
+  color: #f6c106;
+  margin-bottom: 12px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: var(--primary-color);
+}
+
+.role {
+  font-size: 14px;
+  color: #7c8fa3;
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  .testimonial-card {
+    min-width: 240px;
+    padding: 20px;
+  }
+  .profile img {
+    width: 65px;
+    height: 65px;
+  }
+}

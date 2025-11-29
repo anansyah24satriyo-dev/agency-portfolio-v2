@@ -1,0 +1,78 @@
+/* App.css — Responsive Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #0B5D9B;
+  --secondary-color: #B1CCE1;
+  --light-bg: #F7F8F8;
+  --white: #FFFFFF;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--primary-color);
+  background-color: var(--white);
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* responsive grid utility */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 📱 MOBILE FRIENDLY SETTINGS */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 16px;
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+  }
+}
+
+/* 📱 Extra small screens */
+@media (max-width: 480px) {
+  .section {
+    padding: 30px 14px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
