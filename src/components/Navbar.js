@@ -33,7 +33,7 @@ const Navbar = () => {
 
         <div className="logo-container" onClick={() => navigate("/")}>
           <img src="./img/Logo Agensi.png" alt="Agency Logo" className="logo"/>
-          <div className="logo-text">Boejank VisionLab</div>
+          <div className="logo-text">Boejank's VisionLab</div>
         </div>
 
         <ul className="menu">
