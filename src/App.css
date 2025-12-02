@@ -1,4 +1,4 @@
-/* App.css — Responsive Global Styles */
+/* Global Styles — Responsive & Mobile First */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -8,6 +8,12 @@
   --white: #FFFFFF;
   --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
+
+  /* Fluid Typography */
+  --h1-size: clamp(1.6rem, 4vw, 2.6rem);
+  --h2-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  --h3-size: clamp(1.2rem, 3vw, 1.6rem);
+  --p-size: clamp(0.95rem, 2.5vw, 1.1rem);
 }
 
 body {
@@ -18,33 +24,47 @@ body {
   background-color: var(--white);
 }
 
+/* Typography scaling */
+h1 { font-size: var(--h1-size); }
+h2 { font-size: var(--h2-size); }
+h3 { font-size: var(--h3-size); }
+p  { font-size: var(--p-size); }
+
+/* Button */
 .btn {
   background-color: var(--primary-color);
   color: var(--white);
   border: none;
-  padding: 10px 20px;
+  padding: 12px 22px;
   border-radius: 25px;
   cursor: pointer;
   transition: var(--transition);
+  font-size: 1rem;
 }
 
 .btn:hover {
   background-color: var(--secondary-color);
 }
 
+/* Section wrapper */
 .section {
   padding: 60px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* responsive grid utility */
+/* Grid utility */
 .grid {
   display: grid;
   gap: 20px;
 }
 
-/* Animation */
+/* Dynamic grid (auto responsive) */
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Animations */
 .fade-in {
   animation: fadeIn 1s ease-in;
 }
@@ -54,10 +74,15 @@ body {
   to { opacity: 1; }
 }
 
-/* 📱 MOBILE FRIENDLY SETTINGS */
+/* 📱 Tablet (≤768px) */
 @media (max-width: 768px) {
   .section {
     padding: 40px 16px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.95rem;
   }
 
   h1, h2, h3 {
@@ -65,14 +90,36 @@ body {
   }
 }
 
-/* 📱 Extra small screens */
+/* 📱 Small Phones (≤480px) */
 @media (max-width: 480px) {
   .section {
-    padding: 30px 14px;
+    padding: 32px 14px;
   }
 
   .btn {
     width: 100%;
     text-align: center;
+    padding: 14px 0;
+    font-size: 1rem;
+  }
+}
+
+/* 📱 Extra Small Phones (≤360px — HP kecil) */
+@media (max-width: 360px) {
+  .section {
+    padding: 28px 12px;
+  }
+
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1.05rem; }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 12px 0;
   }
 }
