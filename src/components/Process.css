@@ -1,5 +1,6 @@
 .process {
   text-align: center;
+  padding: 40px 20px;
 }
 
 .process-container {
@@ -9,6 +10,7 @@
   margin-top: 40px;
 }
 
+/* CARD */
 .process-step {
   background-color: var(--white);
   padding: 35px 25px;
@@ -23,11 +25,13 @@
   border-color: transparent;
 }
 
+/* ICON */
 .step-icon {
   font-size: 48px;
   margin-bottom: 15px;
 }
 
+/* TITLE */
 .process-step h3 {
   color: var(--primary-color);
   font-size: 22px;
@@ -35,17 +39,50 @@
   margin-bottom: 8px;
 }
 
+/* TEXT */
 .process-step p {
   font-size: 15px;
   color: #567792;
 }
 
-/* Mobile Optimization */
-@media (max-width: 480px) {
-  .step-icon {
-    font-size: 42px;
+/* ========================= */
+/*       RESPONSIVE FIX      */
+/* ========================= */
+@media (max-width: 768px) {
+  .process-container {
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+
   .process-step {
-    padding: 28px 18px;
+    padding: 28px 20px;
+  }
+
+  .step-icon {
+    font-size: 44px;
+  }
+
+  .process-step h3 {
+    font-size: 20px;
+  }
+
+  .process-step p {
+    font-size: 14px;
+  }
+}
+
+/* MOBILE WIDE (max 480px) */
+@media (max-width: 480px) {
+  .process-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .process-step {
+    padding: 24px 18px;
+  }
+
+  .step-icon {
+    font-size: 40px;
   }
 }
