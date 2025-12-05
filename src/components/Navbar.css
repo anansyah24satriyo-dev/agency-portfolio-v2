@@ -1,23 +1,9 @@
-/* Navbar.css */
-
-.menu button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--primary-color);
-  font-weight: 500;
-  font-size: 16px;
-  transition: var(--transition);
-}
-
-.menu button:hover {
-  color: var(--secondary-color);
-}
-
+/* ===== NAVBAR BASE ===== */
 .navbar {
   background-color: var(--white);
-  padding: 10px 20px;
+  padding: 12px 20px;
   transition: var(--transition);
+  position: relative;
 }
 
 .navbar.sticky {
@@ -36,50 +22,59 @@
   margin: 0 auto;
 }
 
+/* ===== LOGO ===== */
 .logo-container {
   display: flex;
-  flex-direction: row; /* Horizontal: logo kiri, tulisan kanan */
   align-items: center;
-  cursor: pointer; /* Opsional: jika ingin logo bisa diklik */
+  cursor: pointer;
 }
 
 .logo {
-  width: 120px; /* Sesuaikan lebar logo */
-  height: 40px; /* Sesuaikan tinggi logo */
-  object-fit: contain; /* Pastikan gambar tidak terdistorsi */
-  margin-right: 10px; /* Jarak antara gambar dan teks */
+  width: 120px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 10px;
 }
 
 .logo-text {
   font-weight: 700;
   font-size: 18px;
-  color: var(--primary-color); /* Warna utama untuk teks */
+  color: var(--primary-color);
   transition: var(--transition);
 }
 
 .logo-text:hover {
-  color: var(--secondary-color); /* Warna hover untuk efek bagus */
+  color: var(--secondary-color);
 }
 
+/* ===== MENU ===== */
 .menu {
   display: flex;
+  gap: 20px;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  align-items: center;
 }
 
-.menu li {
-  margin: 0 15px;
-}
-
-.menu a {
-  text-decoration: none;
+.menu li a,
+.menu button {
+  background: none;
+  border: none;
+  cursor: pointer;
   color: var(--primary-color);
   font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  transition: var(--transition);
 }
 
+.menu li a:hover,
+.menu button:hover {
+  color: var(--secondary-color);
+}
+
+/* ===== WHATSAPP BUTTON ===== */
 .wa-btn {
-  width: 40px; /* Sesuaikan ukuran */
+  width: 40px;
   height: 40px;
   cursor: pointer;
   transition: var(--transition);
@@ -89,6 +84,74 @@
   opacity: 0.8;
 }
 
-.cta-btn {
-  @extend .btn;
+/* ===== HAMBURGER (MOBILE) ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: var(--primary-color);
+  transition: 0.3s ease;
+}
+
+/* ACTIVE ANIMATION */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width: 900px) {
+  .menu {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 230px;
+    background: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 16px;
+    box-shadow: var(--shadow);
+    border-left: 1px solid #e2e8f0;
+    transition: 0.3s ease-in-out;
+
+    transform: translateX(100%); /* hidden */
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .menu.open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* EXTRA SMALL */
+@media (max-width: 480px) {
+  .logo {
+    width: 100px;
+    height: 34px;
+  }
+
+  .logo-text {
+    font-size: 16px;
+  }
 }
