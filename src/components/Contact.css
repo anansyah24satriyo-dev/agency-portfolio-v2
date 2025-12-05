@@ -92,7 +92,22 @@
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===========================================
+   RESPONSIVE LEVEL 1 – Tablet Landscape (max 1024px)
+   =========================================== */
+@media (max-width: 1024px) {
+  .contact-wrapper {
+    gap: 30px;
+  }
+
+  .contact-image img {
+    max-width: 360px;
+  }
+}
+
+/* ===========================================
+   RESPONSIVE LEVEL 2 – Tablet Portrait (max 768px)
+   =========================================== */
 @media (max-width: 768px) {
   .contact-wrapper {
     flex-direction: column;
@@ -100,16 +115,28 @@
     gap: 35px;
   }
 
+  .contact-form {
+    width: 100%;
+  }
+
   .contact-image img {
-    max-width: 300px;
+    max-width: 320px;
   }
 }
 
+/* ===========================================
+   RESPONSIVE LEVEL 3 – Mobile (max 480px)
+   =========================================== */
 @media (max-width: 480px) {
   .contact-form {
     padding: 22px;
   }
-}
+
   .contact-image img {
     max-width: 100%;
   }
+
+  .contact h2 {
+    font-size: 26px;
+  }
+}
