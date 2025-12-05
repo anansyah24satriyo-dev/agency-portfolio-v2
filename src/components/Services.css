@@ -1,25 +1,29 @@
 .services {
   text-align: center;
+  padding: 40px 20px;
 }
 
+/* TITLE */
 .section-title {
   font-size: 40px;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .section-subtitle {
   font-size: 18px;
-  margin-bottom: 50px;
-  color: (--text-secondary);
+  margin-bottom: 45px;
+  color: var(--text-secondary);
 }
 
+/* GRID */
 .services-container {
   display: grid;
   gap: 25px;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+/* CARD */
 .service-card {
   background-color: var(--white);
   border-radius: 20px;
@@ -34,11 +38,13 @@
   border-color: transparent;
 }
 
+/* ICON */
 .service-icon {
   font-size: 55px;
   margin-bottom: 12px;
 }
 
+/* TITLE CARD */
 .service-card h3 {
   font-size: 22px;
   font-weight: 600;
@@ -46,41 +52,79 @@
   color: var(--primary-color);
 }
 
+/* DESCRIPTION */
 .service-card p {
   font-size: 15px;
   margin-bottom: 20px;
   color: #567792;
 }
 
+/* BUTTON */
 .btn.small {
   padding: 10px 22px;
   font-size: 14px;
   border-radius: 30px;
 }
 
-/* RESPONSIVE IMPROVEMENT */
-@media (max-width: 480px) {
+/* ============================ */
+/*        RESPONSIVE FIX        */
+/* ============================ */
+
+@media (max-width: 768px) {
   .section-title {
-    font-size: 30px;
+    font-size: 32px;
   }
+
   .section-subtitle {
     font-size: 16px;
     margin-bottom: 35px;
   }
-}
-@media (max-width: 360px) {
+
   .service-card {
-    padding: 25px 15px;
+    padding: 30px 20px;
+  }
+
+  .service-icon {
+    font-size: 48px;
+  }
+
+  .service-card h3 {
+    font-size: 20px;
   }
 }
 
-/* Modal background */
+@media (max-width: 480px) {
+  .services-container {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .service-card {
+    padding: 26px 18px;
+  }
+
+  .service-icon {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 360px) {
+  .service-card {
+    padding: 22px 15px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+}
+
+/* ============================ */
+/*           MODAL BOX          */
+/* ============================ */
+
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.45);
   display: flex;
   justify-content: center;
@@ -89,7 +133,7 @@
   z-index: 999;
 }
 
-/* Modal box */
+/* CONTENT */
 .modal-content {
   background: #fff;
   padding: 25px;
@@ -97,24 +141,26 @@
   width: 90%;
   max-width: 450px;
   box-shadow: 0 4px 25px rgba(0,0,0,0.2);
-  animation: pop 0.25s ease;
-  text-align: left; /* <<< BIAR RAPIH */
+  animation: pop .25s ease;
+  text-align: left;
 }
 
-/* Judul tetap tengah */
+/* TITLE MODAL */
 .modal-content h2 {
   text-align: center;
   margin-bottom: 10px;
 }
 
+/* SUBTITLE */
 .modal-subtitle {
-  margin-top: 20px;
+  margin-top: 18px;
   margin-bottom: 8px;
   font-weight: 700;
   font-size: 1rem;
   color: var(--primary-color);
 }
 
+/* TEXT */
 .modal-intro {
   margin-bottom: 12px;
   line-height: 1.5;
@@ -130,18 +176,18 @@
   line-height: 1.5;
 }
 
-
-/* Animation */
-@keyframes pop {
-  from { transform: scale(0.85); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
-}
-
+/* BUTTON CLOSE */
 .btn.close {
   margin-top: 15px;
-  background: (--primary-color);
+  background: var(--primary-color);
   color: #fff;
 }
 .btn.close:hover {
-  background: #555;
+  opacity: .85;
+}
+
+/* ANIMATION */
+@keyframes pop {
+  from { transform: scale(.85); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
 }
