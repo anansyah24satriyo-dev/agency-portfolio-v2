@@ -1,6 +1,6 @@
 /* ===== FOOTER BASE ===== */
 .footer {
-  background: #0B5D9B; /* dark navy modern */
+  background: #0B5D9B;
   color: #f8fafc;
   padding: 60px 20px 30px;
   margin-top: 80px;
@@ -20,7 +20,7 @@
   margin-bottom: 18px;
   font-size: 18px;
   font-weight: 600;
-  color: F7F8F8;
+  color: #F7F8F8; /* perbaikan: harus pakai # */
 }
 
 /* ===== AGENCY LOGO & DESCRIPTION ===== */
@@ -78,13 +78,13 @@
   transform: scale(1.1);
 }
 
+/* ===== FOOTER LOGO IMAGE ===== */
 .footer-logo {
-  width: 120px; /* Sesuaikan lebar logo */
-  height: 40px; /* Sesuaikan tinggi logo */
-  object-fit: contain; /* Pastikan gambar tidak terdistorsi */
-  margin-right: 10px; /* Jarak antara gambar dan teks */
+  width: 120px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 10px;
 }
-
 
 /* ===== COPYRIGHT ===== */
 .copyright {
@@ -94,7 +94,39 @@
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.copyright p {
+copyright p {
   color: #F7F8F8;
   font-size: 14px;
+}
+
+/* ===========================================
+   RESPONSIVE FOOTER (max 480px)
+   =========================================== */
+@media (max-width: 480px) {
+  .footer {
+    padding: 50px 20px 25px;
+  }
+
+  .footer-container {
+    gap: 25px;
+  }
+
+  .footer-section h4 {
+    font-size: 16px;
+  }
+
+  .footer-section p,
+  .footer-section a {
+    font-size: 14px;
+  }
+
+  .social-icons img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .footer-logo {
+    width: 100px;
+    height: 35px;
+  }
 }
