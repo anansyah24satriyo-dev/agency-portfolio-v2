@@ -3,6 +3,13 @@
   "outputDirectory": "build",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/backend/api/(.*)", "destination": "/api/$1.js" }
+    {
+      "source": "/backend/api/(.*)",
+      "destination": "/api/$1.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
