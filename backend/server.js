@@ -33,7 +33,11 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
   }
 });
 
-// test
+// test endpoint
+app.get('/api/test', (req, res) => {
+  res.json({ message: "API OK" });
+});
+
 app.get('/', (req, res) => {
   res.send("Backend running...");
 });
