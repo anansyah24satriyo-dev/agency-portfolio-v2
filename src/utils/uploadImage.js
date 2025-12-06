@@ -1,17 +1,24 @@
 export const uploadImageToServer = async (file) => {
-  const formData = new FormData();
-  formData.append("file", file);
+  const base64 = await toBase64(file);
 
   const res = await fetch("/api/upload", {
     method: "POST",
-    body: formData,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ file: base64 }),
   });
 
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.error || "Upload gagal");
-  }
-
   const data = await res.json();
-  return data.url; // URL Cloudinary
+
+  if (!res.ok) throw new Error(data.error || "Upload gagal");
+
+  return data.url;
 };
+
+function toBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
