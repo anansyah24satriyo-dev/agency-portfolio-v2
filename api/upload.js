@@ -1,16 +1,27 @@
-export const uploadImageToServer = async (file) => {
-  const formData = new FormData();
-  formData.append("file", file);
-  formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_PRESET);
+import formidable from "formidable";
 
-  const res = await fetch(
-    `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD}/image/upload`,
-    {
-      method: "POST",
-      body: formData,
-    }
-  );
-
-  const data = await res.json();
-  return data.secure_url;
+export const config = {
+  api: {
+    bodyParser: false
+  }
 };
+
+export default function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  const form = new formidable.IncomingForm();
+
+  form.parse(req, (err, fields, files) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: "Upload failed" });
+    }
+
+    res.json({
+      message: "Uploaded",
+      name: files.file.originalFilename
+    });
+  });
+}
