@@ -1,7 +1,14 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "build",
-  "cleanUrls": true,
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
   "rewrites": [
     { "source": "/backend/api/(.*)", "destination": "/api/$1.js" },
     { "source": "/(.*)", "destination": "/index.html" }
