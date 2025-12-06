@@ -1,18 +1,44 @@
+import Busboy from "busboy";
+
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
   }
 
-  try {
-    const data = req.body;
+  if (req.method !== "POST") {
+    res.status(405).json({ error: "Method not allowed" });
+    return;
+  }
 
-    return res.status(200).json({
-      message: "Upload received",
-      data
+  const busboy = Busboy({ headers: req.headers });
+
+  let fileBuffer = null;
+
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+
+    busboy.on("file", (fieldname, file) => {
+      file.on("data", (data) => chunks.push(data));
+      file.on("end", () => {
+        fileBuffer = Buffer.concat(chunks);
+      });
     });
 
-  } catch (err) {
-    console.error("UPLOAD ERROR:", err);
-    return res.status(500).json({ error: "Internal Server Error" });
-  }
+    busboy.on("finish", () => {
+      res.status(200).json({
+        message: "File received",
+        size: fileBuffer?.length || 0
+      });
+      resolve();
+    });
+
+    busboy.on("error", (err) => {
+      console.error("Busboy error:", err);
+      res.status(500).json({ error: "Upload failed" });
+      reject(err);
+    });
+
+    req.pipe(busboy);
+  });
 }
