@@ -18,10 +18,6 @@ cloudinary.config({
 
 const upload = multer({ storage: multer.memoryStorage() });
 
-app.get("/", (req, res) => {
-  res.send("Backend is running");
-});
-
 app.post("/api/upload", upload.single("file"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: "No file uploaded" });
@@ -35,10 +31,9 @@ app.post("/api/upload", upload.single("file"), async (req, res) => {
 
     return res.json({ url: result.secure_url });
   } catch (error) {
-    console.error(error);
+    console.log(error);
     return res.status(500).json({ error: "Upload failed" });
   }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Backend started on port ${PORT}`));
+app.listen(5000, () => console.log("Backend berjalan di port 5000"));
