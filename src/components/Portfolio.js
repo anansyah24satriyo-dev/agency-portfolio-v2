@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { collection, query, where, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 import "./Portfolio.css";
@@ -16,7 +16,8 @@ export default function Portfolio() {
     );
 
     const unsub = onSnapshot(q, (snap) => {
-      setProjects(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+      const list = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+      setProjects(list);
     });
 
     return () => unsub();
@@ -25,7 +26,9 @@ export default function Portfolio() {
   const filteredProjects =
     activeFilter === "all"
       ? projects
-      : projects.filter(p => p.category?.toLowerCase() === activeFilter);
+      : projects.filter(
+          (p) => p.category?.toLowerCase() === activeFilter
+        );
 
   const categories = ["all", "website", "video", "photo", "design"];
 
@@ -33,9 +36,8 @@ export default function Portfolio() {
     <section id="portfolio" className="portfolio section">
       <h2>Our Recent Projects</h2>
 
-      {/* FILTER BUTTONS */}
       <div className="filters">
-        {categories.map(cat => (
+        {categories.map((cat) => (
           <button
             key={cat}
             className={`filter-btn ${activeFilter === cat ? "active" : ""}`}
@@ -46,15 +48,17 @@ export default function Portfolio() {
         ))}
       </div>
 
-      {/* GRID */}
       <div className="portfolio-grid grid">
-        {filteredProjects.map(p => (
+        {filteredProjects.map((p) => (
           <div
             key={p.id}
             className="portfolio-item"
             onClick={() => setSelectedProject(p)}
           >
-            <img src={p.thumbnailUrl} alt={p.title} />
+            <img
+              src={p.thumbnailUrl || "/placeholder.jpg"}
+              alt={p.title}
+            />
 
             <div className="overlay">
               <div className="overlay-content">
@@ -66,36 +70,51 @@ export default function Portfolio() {
         ))}
       </div>
 
-      {/* MODAL DETAIL */}
       {selectedProject && (
-  <div className="project-modal-overlay" onClick={() => setSelectedProject(null)}>
-    <div className="project-modal" onClick={(e) => e.stopPropagation()}>
-      <button className="close-btn" onClick={() => setSelectedProject(null)}>✕</button>
-
-      <img src={selectedProject.thumbnailUrl} alt={selectedProject.title} />
-
-      <div className="modal-info">
-        <h3>{selectedProject.title}</h3>
-        <p className="cat">{selectedProject.category}</p>
-
-        {selectedProject.description && (
-          <p className="desc">{selectedProject.description}</p>
-        )}
-
-        {selectedProject.link && (
-          <a
-            className="visit-btn"
-            href={selectedProject.link}
-            target="_blank"
-            rel="noopener noreferrer"
+        <div
+          className="project-modal-overlay"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="project-modal"
+            onClick={(e) => e.stopPropagation()}
           >
-            Visit Project
-          </a>
-        )}
-      </div>
-    </div>
-  </div>
-)}
+            <button
+              className="close-btn"
+              onClick={() => setSelectedProject(null)}
+            >
+              ✕
+            </button>
+
+            <img
+              src={selectedProject.thumbnailUrl || "/placeholder.jpg"}
+              alt={selectedProject.title}
+            />
+
+            <div className="modal-info">
+              <h3>{selectedProject.title}</h3>
+              <p className="cat">{selectedProject.category}</p>
+
+              {(selectedProject.longDesc || selectedProject.shortDesc) && (
+                <p className="desc">
+                  {selectedProject.longDesc || selectedProject.shortDesc}
+                </p>
+              )}
+
+              {selectedProject.link && (
+                <a
+                  className="visit-btn"
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Project
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
