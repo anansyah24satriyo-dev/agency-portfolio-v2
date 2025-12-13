@@ -1,30 +1,21 @@
-import cloudinary from "cloudinary";
+export async function uploadImageToServer(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_PRESET);
 
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
-
-  try {
-    const { file } = req.body;
-
-    if (!file) {
-      return res.status(400).json({ error: "No file provided" });
+  const res = await fetch(
+    `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD}/image/upload`,
+    {
+      method: "POST",
+      body: formData,
     }
+  );
 
-    const upload = await cloudinary.v2.uploader.upload(file, {
-      folder: "portfolio",
-    });
+  const data = await res.json();
 
-    return res.status(200).json({ url: upload.secure_url });
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: "Upload failed" });
+  if (!data.secure_url) {
+    throw new Error("Upload gagal");
   }
+
+  return data.secure_url;
 }
