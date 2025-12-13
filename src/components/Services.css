@@ -1,9 +1,14 @@
+/* =============================
+   SERVICES SECTION
+============================= */
 .services {
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
-/* TITLE */
+/* =============================
+   SECTION HEADER
+============================= */
 .section-title {
   font-size: 40px;
   font-weight: 700;
@@ -14,37 +19,46 @@
   font-size: 18px;
   margin-bottom: 45px;
   color: var(--text-secondary);
+  line-height: 1.6;
 }
 
-/* GRID */
+/* =============================
+   GRID
+============================= */
 .services-container {
   display: grid;
-  gap: 25px;
+  gap: 26px;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-/* CARD */
+/* =============================
+   CARD
+============================= */
 .service-card {
   background-color: var(--white);
-  border-radius: 20px;
-  padding: 35px 25px;
-  transition: var(--transition);
+  border-radius: 22px;
+  padding: 36px 26px;
   border: 1px solid #e1e8ef;
+  transition: 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
   border-color: transparent;
 }
 
-/* ICON */
+/* =============================
+   ICON
+============================= */
 .service-icon {
-  font-size: 55px;
+  font-size: 52px;
   margin-bottom: 12px;
 }
 
-/* TITLE CARD */
+/* =============================
+   TITLE CARD
+============================= */
 .service-card h3 {
   font-size: 22px;
   font-weight: 600;
@@ -52,40 +66,50 @@
   color: var(--primary-color);
 }
 
-/* DESCRIPTION */
+/* =============================
+   DESCRIPTION
+============================= */
 .service-card p {
   font-size: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   color: #567792;
+  line-height: 1.6;
 }
 
-/* BUTTON */
+/* =============================
+   BUTTON
+============================= */
 .btn.small {
-  padding: 10px 22px;
+  padding: 10px 24px;
   font-size: 14px;
   border-radius: 30px;
 }
 
-/* ============================ */
-/*        RESPONSIVE FIX        */
-/* ============================ */
+/* =============================
+   RESPONSIVE
+============================= */
 
+/* Tablet */
 @media (max-width: 768px) {
+  .services {
+    padding: 45px 18px;
+  }
+
   .section-title {
     font-size: 32px;
   }
 
   .section-subtitle {
     font-size: 16px;
-    margin-bottom: 35px;
+    margin-bottom: 36px;
   }
 
   .service-card {
-    padding: 30px 20px;
+    padding: 30px 22px;
   }
 
   .service-icon {
-    font-size: 48px;
+    font-size: 46px;
   }
 
   .service-card h3 {
@@ -93,6 +117,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .services-container {
     grid-template-columns: 1fr;
@@ -104,13 +129,7 @@
   }
 
   .service-icon {
-    font-size: 44px;
-  }
-}
-
-@media (max-width: 360px) {
-  .service-card {
-    padding: 22px 15px;
+    font-size: 42px;
   }
 
   .section-title {
@@ -118,10 +137,16 @@
   }
 }
 
-/* ============================ */
-/*           MODAL BOX          */
-/* ============================ */
+/* Extra Small */
+@media (max-width: 360px) {
+  .service-card {
+    padding: 22px 16px;
+  }
+}
 
+/* =============================
+   MODAL
+============================= */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -133,22 +158,23 @@
   z-index: 999;
 }
 
-/* CONTENT */
+/* MODAL CONTENT */
 .modal-content {
   background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 450px;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.2);
-  animation: pop .25s ease;
+  padding: 26px;
+  border-radius: 14px;
+  width: 92%;
+  max-width: 460px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  animation: pop 0.25s ease;
   text-align: left;
 }
 
 /* TITLE MODAL */
 .modal-content h2 {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-size: 22px;
 }
 
 /* SUBTITLE */
@@ -163,12 +189,12 @@
 /* TEXT */
 .modal-intro {
   margin-bottom: 12px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .modal-list {
   padding-left: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .modal-list li {
@@ -176,18 +202,27 @@
   line-height: 1.5;
 }
 
-/* BUTTON CLOSE */
+/* CLOSE BUTTON */
 .btn.close {
-  margin-top: 15px;
+  margin-top: 16px;
   background: var(--primary-color);
   color: #fff;
 }
+
 .btn.close:hover {
-  opacity: .85;
+  opacity: 0.85;
 }
 
-/* ANIMATION */
+/* =============================
+   ANIMATION
+============================= */
 @keyframes pop {
-  from { transform: scale(.85); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.88);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

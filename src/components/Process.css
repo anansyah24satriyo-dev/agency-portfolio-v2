@@ -1,37 +1,49 @@
+/* =============================
+   PROCESS SECTION
+============================= */
 .process {
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
+/* =============================
+   GRID CONTAINER
+============================= */
 .process-container {
   display: grid;
-  gap: 25px;
+  gap: 26px;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   margin-top: 40px;
 }
 
-/* CARD */
+/* =============================
+   CARD
+============================= */
 .process-step {
   background-color: var(--white);
-  padding: 35px 25px;
-  border-radius: 18px;
-  transition: var(--transition);
+  padding: 36px 26px;
+  border-radius: 20px;
   border: 1px solid #d8e3ed;
+  transition: 0.3s ease;
 }
 
 .process-step:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   box-shadow: var(--shadow);
   border-color: transparent;
 }
 
-/* ICON */
+/* =============================
+   ICON
+============================= */
 .step-icon {
-  font-size: 48px;
-  margin-bottom: 15px;
+  font-size: 46px;
+  margin-bottom: 14px;
 }
 
-/* TITLE */
+/* =============================
+   TITLE
+============================= */
 .process-step h3 {
   color: var(--primary-color);
   font-size: 22px;
@@ -39,27 +51,36 @@
   margin-bottom: 8px;
 }
 
-/* TEXT */
+/* =============================
+   TEXT
+============================= */
 .process-step p {
   font-size: 15px;
   color: #567792;
+  line-height: 1.6;
 }
 
-/* ========================= */
-/*       RESPONSIVE FIX      */
-/* ========================= */
+/* =============================
+   RESPONSIVE
+============================= */
+
+/* Tablet */
 @media (max-width: 768px) {
+  .process {
+    padding: 45px 18px;
+  }
+
   .process-container {
-    gap: 18px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 
   .process-step {
-    padding: 28px 20px;
+    padding: 30px 22px;
   }
 
   .step-icon {
-    font-size: 44px;
+    font-size: 42px;
   }
 
   .process-step h3 {
@@ -71,8 +92,12 @@
   }
 }
 
-/* MOBILE WIDE (max 480px) */
+/* Mobile */
 @media (max-width: 480px) {
+  .process {
+    padding: 40px 16px;
+  }
+
   .process-container {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -83,6 +108,6 @@
   }
 
   .step-icon {
-    font-size: 40px;
+    font-size: 38px;
   }
 }

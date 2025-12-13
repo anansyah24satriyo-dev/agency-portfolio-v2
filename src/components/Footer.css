@@ -1,132 +1,168 @@
-/* ===== FOOTER BASE ===== */
+/* =============================
+   FOOTER – MOBILE FIRST
+============================= */
 .footer {
-  background: #0B5D9B;
+  background: #0b5d9b;
   color: #f8fafc;
-  padding: 60px 20px 30px;
-  margin-top: 80px;
+  padding: 50px 16px 24px;
+  margin-top: 70px;
 }
 
-/* ===== FOOTER GRID ===== */
+/* =============================
+   GRID
+============================= */
 .footer-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
 }
 
-/* ===== SECTION TITLE ===== */
+/* =============================
+   SECTION TITLE
+============================= */
 .footer-section h4 {
-  margin-bottom: 18px;
-  font-size: 18px;
+  margin-bottom: 14px;
+  font-size: 16px;
   font-weight: 600;
-  color: #F7F8F8; /* perbaikan: harus pakai # */
+  color: #f7f8f8;
 }
 
-/* ===== AGENCY LOGO & DESCRIPTION ===== */
+/* =============================
+   LOGO & TEXT
+============================= */
 .logo {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .footer-section p {
-  color: #F7F8F8;
+  color: #f7f8f8;
   line-height: 1.6;
-  font-size: 15px;
+  font-size: 14px;
 }
 
-/* ===== QUICK LINKS ===== */
+/* =============================
+   LINKS
+============================= */
 .footer-section ul {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .footer-section a {
-  color: #F7F8F8;
+  color: #f7f8f8;
   text-decoration: none;
-  margin-bottom: 10px;
   display: block;
-  font-size: 15px;
-  transition: 0.25s ease;
+  margin-bottom: 8px;
+  font-size: 14px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .footer-section a:hover {
-  color: #ffffff;
-  transform: translateX(3px);
+  opacity: 0.9;
 }
 
-/* ===== SOCIAL ICONS ===== */
+/* =============================
+   SOCIAL
+============================= */
 .social-icons,
 .footer-section .flex {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   align-items: center;
 }
 
 .footer-section .flex a img {
-  width: 26px;
-  height: 26px;
-  opacity: 0.85;
-  transition: 0.25s ease;
+  width: 22px;
+  height: 22px;
   filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .footer-section .flex a:hover img {
+  transform: scale(1.08);
   opacity: 1;
-  transform: scale(1.1);
 }
 
-/* ===== FOOTER LOGO IMAGE ===== */
+/* =============================
+   FOOTER LOGO IMAGE
+============================= */
 .footer-logo {
-  width: 120px;
-  height: 40px;
+  width: 100px;
+  height: 34px;
   object-fit: contain;
-  margin-right: 10px;
 }
 
-/* ===== COPYRIGHT ===== */
+/* =============================
+   COPYRIGHT
+============================= */
 .copyright {
   text-align: center;
-  margin-top: 40px;
-  padding-top: 25px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-copyright p {
-  color: #F7F8F8;
-  font-size: 14px;
+.copyright p {
+  color: #f7f8f8;
+  font-size: 13px;
 }
 
-/* ===========================================
-   RESPONSIVE FOOTER (max 480px)
-   =========================================== */
-@media (max-width: 480px) {
+/* =============================
+   TABLET
+============================= */
+@media (min-width: 601px) {
   .footer {
-    padding: 50px 20px 25px;
+    padding: 56px 20px 28px;
   }
 
   .footer-container {
-    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 34px;
   }
 
   .footer-section h4 {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .footer-section p,
   .footer-section a {
-    font-size: 14px;
+    font-size: 15px;
+  }
+}
+
+/* =============================
+   DESKTOP
+============================= */
+@media (min-width: 901px) {
+  .footer {
+    padding: 60px 20px 30px;
   }
 
-  .social-icons img {
-    width: 22px;
-    height: 22px;
+  .footer-container {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 40px;
+  }
+
+  .footer-section h4 {
+    font-size: 18px;
+  }
+
+  .logo {
+    font-size: 22px;
   }
 
   .footer-logo {
-    width: 100px;
-    height: 35px;
+    width: 120px;
+    height: 40px;
+  }
+
+  .copyright p {
+    font-size: 14px;
   }
 }

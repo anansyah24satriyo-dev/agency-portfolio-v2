@@ -1,24 +1,28 @@
 /* ===========================
-   Base Layout (Desktop First)
+   ABOUT SECTION – MOBILE FIRST
    =========================== */
+
+/* Container */
 .about-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   align-items: center;
-  padding: 40px 0;
+  padding: 20px 0;
+  text-align: center;
 }
 
 /* Image */
 .about-image img {
   width: 100%;
+  max-width: 420px;
   border-radius: 14px;
   box-shadow: var(--shadow);
-  transition: var(--transition);
+  transition: transform 0.3s ease;
 }
 
 .about-image img:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 /* Tagline */
@@ -26,73 +30,49 @@
   display: inline-block;
   background: var(--secondary-color);
   color: var(--primary-color);
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 14px;
   font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 /* Title */
 .about-text h2 {
-  margin: 15px 0;
-  font-size: 32px;
+  margin: 12px 0;
+  font-size: 22px;
   font-weight: 700;
   color: var(--primary-color);
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 /* List */
 .about-list {
   padding: 0;
   list-style: none;
-  margin: 20px 0;
+  margin: 18px 0;
 }
 
 .about-list li {
-  font-size: 18px;
-  margin-bottom: 12px;
+  font-size: 15px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 }
 
 /* CTA Button */
 .about-btn {
-  margin-top: 10px;
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
 }
 
 /* ===========================
-      RESPONSIVE SECTION
+   TABLET
    =========================== */
-
-/* Tablet */
-@media (max-width: 900px) {
-  .about-container {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    text-align: center;
-  }
-
-  .tagline {
-    margin: 0 auto;
-  }
-
-  .about-text h2 {
-    font-size: 28px;
-  }
-
-  .about-list li {
-    justify-content: center;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .about-container {
-    padding: 20px 0;
-  }
-
+@media (min-width: 601px) {
   .about-text h2 {
     font-size: 26px;
   }
@@ -102,14 +82,39 @@
   }
 }
 
-/* Small Mobile */
-@media (max-width: 480px) {
-  .about-text h2 {
-    font-size: 23px;
+/* ===========================
+   DESKTOP
+   =========================== */
+@media (min-width: 901px) {
+  .about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    text-align: left;
+    padding: 40px 0;
+  }
+
+  .about-image img {
+    max-width: 100%;
   }
 
   .tagline {
-    font-size: 12px;
-    padding: 5px 12px;
+    font-size: 14px;
+    padding: 6px 14px;
+    margin: 0 0 12px 0;
+  }
+
+  .about-text h2 {
+    font-size: 32px;
+  }
+
+  .about-list li {
+    justify-content: flex-start;
+    font-size: 18px;
+  }
+
+  .about-btn {
+    justify-content: flex-start;
   }
 }

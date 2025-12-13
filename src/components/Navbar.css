@@ -1,4 +1,6 @@
-/* ===== NAVBAR BASE ===== */
+/* =============================
+   NAVBAR BASE
+============================= */
 .navbar {
   background-color: var(--white);
   padding: 12px 20px;
@@ -22,7 +24,9 @@
   margin: 0 auto;
 }
 
-/* ===== LOGO ===== */
+/* =============================
+   LOGO
+============================= */
 .logo-container {
   display: flex;
   align-items: center;
@@ -47,7 +51,9 @@
   color: var(--secondary-color);
 }
 
-/* ===== MENU ===== */
+/* =============================
+   MENU DESKTOP
+============================= */
 .menu {
   display: flex;
   gap: 20px;
@@ -72,7 +78,9 @@
   color: var(--secondary-color);
 }
 
-/* ===== WHATSAPP BUTTON ===== */
+/* =============================
+   WHATSAPP BUTTON
+============================= */
 .wa-btn {
   width: 40px;
   height: 40px;
@@ -84,7 +92,9 @@
   opacity: 0.8;
 }
 
-/* ===== HAMBURGER (MOBILE) ===== */
+/* =============================
+   HAMBURGER
+============================= */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -96,6 +106,7 @@
   width: 26px;
   height: 3px;
   background: var(--primary-color);
+  border-radius: 2px;
   transition: 0.3s ease;
 }
 
@@ -112,25 +123,39 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ===== MOBILE MENU ===== */
+/* =============================
+   MOBILE MENU
+============================= */
 @media (max-width: 900px) {
   .menu {
     position: fixed;
-    top: 70px;
+    top: 64px;
     right: 0;
-    width: 230px;
+    width: 240px;
+    height: calc(100vh - 64px);
     background: var(--white);
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
-    gap: 16px;
-    box-shadow: var(--shadow);
+    padding: 22px;
+    gap: 18px;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
     border-left: 1px solid #e2e8f0;
     transition: 0.3s ease-in-out;
 
-    transform: translateX(100%); /* hidden */
+    transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
+  }
+
+  .menu li {
+    width: 100%;
+  }
+
+  .menu li a,
+  .menu button {
+    width: 100%;
+    font-size: 16px;
+    padding: 8px 0;
   }
 
   .menu.open {
@@ -144,8 +169,14 @@
   }
 }
 
-/* EXTRA SMALL */
+/* =============================
+   SMALL MOBILE
+============================= */
 @media (max-width: 480px) {
+  .navbar {
+    padding: 10px 16px;
+  }
+
   .logo {
     width: 100px;
     height: 34px;
@@ -153,5 +184,10 @@
 
   .logo-text {
     font-size: 16px;
+  }
+
+  .menu {
+    width: 100%;
+    border-left: none;
   }
 }
