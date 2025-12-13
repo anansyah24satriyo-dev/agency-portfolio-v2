@@ -58,7 +58,7 @@
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #2563eb;
+  border-color: #0B5D9B;
   background: #ffffff;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
   outline: none;
@@ -85,7 +85,7 @@
 }
 
 .contact-form .btn:hover {
-  background: #1e40af;
+  background: #B1CCE1;
 }
 
 /* =============================
