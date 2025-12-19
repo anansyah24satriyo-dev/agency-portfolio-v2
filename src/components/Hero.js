@@ -1,51 +1,37 @@
-<section className="hero">
-  <div className="hero-container">
-    {/* TEXT */}
-    <div className="hero-text">
-      <span className="hero-badge">Creative Digital Agency</span>
+// components/Hero.js
+import React from 'react';
+import './Hero.css';
+
+const Hero = () => {
+  return (
+<section class="hero" id="home">
+  <div class="hero-container">
+    <div class="hero-text">
+      <span class="hero-badge">Creative Digital Agency</span>
 
       <h1>
-        Build a Strong Digital Presence
+        Build Your Brand With
         <br />
-        That Actually Converts
+        <span>Powerful Digital Experiences</span>
       </h1>
 
       <p>
-        We help brands grow through modern websites, professional photography,
-        cinematic video editing, and thoughtful design.
+        We help businesses grow through website development,
+        photography, video editing, and creative design that converts.
       </p>
 
-      <div className="hero-buttons">
-        <a
-          href="https://wa.me/628xxxxxxxxxx"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn primary"
-        >
-          Get Started
-        </a>
-
-        <a href="#portfolio" className="btn outline">
-          See Our Work
-        </a>
-      </div>
-
-      <div className="hero-trust">
-        <span>⭐ 5.0 Rating</span>
-        <span>•</span>
-        <span>120+ Projects</span>
-        <span>•</span>
-        <span>Trusted by Clients</span>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn primary">See Our Work</a>
+        <a href="#contact" class="btn outline">Get Started</a>
       </div>
     </div>
 
-    {/* IMAGE */}
-    <div className="hero-image">
-      <img
-        src="/hero.jpg"
-        alt="Creative digital agency team"
-        loading="eager"
-      />
+    <div class="hero-image">
+      <img src="assets/hero.jpg" alt="Creative Agency" />
     </div>
   </div>
 </section>
+  );
+};
+
+export default Hero;
