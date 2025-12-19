@@ -27,7 +27,7 @@ const Hero = () => {
     </div>
 
     <div class="hero-image">
-      <img src="assets/hero.jpg" alt="Creative Agency" />
+      <img src="./img/Hero.jpg" alt="Creative Agency" />
     </div>
   </div>
 </section>
