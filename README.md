@@ -53,10 +53,15 @@ This project follows a modular React structure:
 ## Folder Structure
 
 src/
+
 ├── admin/
+
 ├── components/
+
 ├── utils/
+
 ├── firebase.js
+
 ├── App.js
 
 ---
