@@ -21,7 +21,7 @@ agency-portfolio-v2-snowy.vercel.app
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 **Frontend**
 - React (CRA)
