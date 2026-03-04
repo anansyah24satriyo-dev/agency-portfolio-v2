@@ -66,7 +66,7 @@ src/
 
 ---
 
-## 🧠 Key Technical Implementation
+## Key Technical Implementation
 
 - Controlled form validation using React useState
 - Asynchronous Firebase Firestore submission
@@ -76,7 +76,7 @@ src/
 
 ---
 
-## ⚙️ Installation & Run Locally
+## Installation & Run Locally
 
 Clone the repository:
 
